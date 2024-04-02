@@ -38,7 +38,12 @@ snapshot_download("Shanghai_AI_Laboratory/internlm2-chat-1_8b",
 ```
 
 
-##  测试2  
+##  测试2    运行微调虚拟人模型  八戒-Chat-1.8B 模型
+
+- 八戒-Chat-1.8B：https://www.modelscope.cn/models/JimmyMa99/BaJie-Chat-mini/summary
+- Chat-嬛嬛-1.8B：https://openxlab.org.cn/models/detail/BYCJS/huanhuan-chat-internlm2-1_8b
+- Mini-Horo-巧耳：https://openxlab.org.cn/models/detail/SaaRaaS/Horowag_Mini
+
 
 ![2024-04-02-08-33](https://github.com/jingkeke/internLM2/assets/16113137/8f1125a6-e40d-4048-aae2-3a0a2952bafe)
 
