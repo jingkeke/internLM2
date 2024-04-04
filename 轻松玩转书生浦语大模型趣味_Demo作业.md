@@ -8,6 +8,8 @@
 
 ##  下载模型 
 
+![2024-04-05-07-22](https://github.com/jingkeke/internLM2/assets/16113137/a48d77f4-e223-425f-8e95-a0c8ad9eb2be)
+
 - huggingface
 ```python
 
