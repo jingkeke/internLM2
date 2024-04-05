@@ -53,10 +53,14 @@ snapshot_download("Shanghai_AI_Laboratory/internlm2-chat-1_8b",
 
 #### 5.3 图文写作实战（开启 50% A100 权限后才可开启此章节）
 > 个人感觉很不错 实用性很高
+
+
 ![2024-04-06-07-19](https://github.com/jingkeke/internLM2/assets/16113137/809a26b0-51e8-429a-80df-f3554427ecac)
 
 #### 5.4 图片理解实战
-- 测试了几次 作为OCR使用 , 开头40字左右 准确率很高,后面就有点自由发挥... 吐过 调大默认的参数 ,会产生大量的重复. 
+- 测试了几次 作为OCR使用 , 开头40字左右 准确率很高,后面就有点自由发挥... 吐过 调大默认的参数 ,会产生大量的重复.
+
+
 ![2024-04-06-07-36](https://github.com/jingkeke/internLM2/assets/16113137/27dd7acb-b8b0-4c39-9090-118a021364c6)
 
 
