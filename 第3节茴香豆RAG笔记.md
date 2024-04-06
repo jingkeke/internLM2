@@ -38,7 +38,20 @@ python3 -m huixiangdou.main --standalone
 
 
 
-### 
+### 利用 Gradio 搭建网页 Demo
+
+- 利用 Gradio 搭建网页 Demo
+```bash
+cd /root/huixiangdou
+python3 -m tests.test_query_gradio 
+
+```
+
+![2024-04-07-07-45](https://github.com/jingkeke/internLM2/assets/16113137/13f48ac9-3443-4ea9-86a5-36e61c62b913)
+
+
+
+
 
 
 
