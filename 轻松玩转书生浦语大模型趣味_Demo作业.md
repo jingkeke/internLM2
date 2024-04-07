@@ -53,6 +53,7 @@ snapshot_download("Shanghai_AI_Laboratory/internlm2-chat-1_8b",
 
 #### 5.3 图文写作实战（开启 50% A100 权限后才可开启此章节）
 > 个人感觉很不错 实用性很高
+>大概看了一下代码  ,他是调用internLM 模型  选择在哪插入图片, 插入什么图片, 然后去一个网址 找符合要求的图片 .
 
 
 ![2024-04-06-07-19](https://github.com/jingkeke/internLM2/assets/16113137/809a26b0-51e8-429a-80df-f3554427ecac)
