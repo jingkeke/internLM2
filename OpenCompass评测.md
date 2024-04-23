@@ -20,8 +20,8 @@ python run.py --datasets ceval_gen --hf-path /share/new_models/Shanghai_AI_Labor
 
 ```
 
-命令 解释 
-
+- 命令 解释 
+```bash
 python run.py --datasets ceval_gen \
 --hf-path /share/new_models/Shanghai_AI_Laboratory/internlm2-chat-1_8b \  # HuggingFace 模型路径
 --tokenizer-path /share/new_models/Shanghai_AI_Laboratory/internlm2-chat-1_8b \  # HuggingFace tokenizer 路径（如果与模型路径相同，可以省略）
@@ -33,6 +33,9 @@ python run.py --datasets ceval_gen \
 --num-gpus 1  # 运行模型所需的 GPU 数量
 --debug \ 
 --reuse  latest  # 断点续跑 ...
+```
+
+
 ####  结果  
 
  ![2024-04-22-17-08](https://github.com/jingkeke/internLM2/assets/16113137/7c079449-ac43-4a9f-a66d-dcd0ee254147)
