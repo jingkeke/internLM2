@@ -70,7 +70,7 @@ python run.py --datasets ceval_gen \
 
 ####  结果  
 
-> 上面的配置 我自己跑 老是没有结果 .....报错 05/04 18:46:48 - OpenCompass - ERROR - /root/opencompass/opencompass/tasks/openicl_eval.py - _score - 241 - Task [opencompass.models.huggingface.HuggingFace_Meta-Llama-3-8B-Instruct_Meta-Llama-3-8B-Instruct/ceval-high_school_physics]: No predictions found.
+> 上面的配置 我自己跑 老是没有结果 .....报错 05/04 18:46:48 可能是 nvidia 驱动的问题    - OpenCompass - ERROR - /root/opencompass/opencompass/tasks/openicl_eval.py - _score - 241 - Task [opencompass.models.huggingface.HuggingFace_Meta-Llama-3-8B-Instruct_Meta-Llama-3-8B-Instruct/ceval-high_school_physics]: No predictions found.
 
  ![2024-04-22-17-08](https://github.com/jingkeke/internLM2/assets/16113137/7c079449-ac43-4a9f-a66d-dcd0ee254147)
 
