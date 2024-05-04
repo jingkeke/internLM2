@@ -2,9 +2,41 @@
 
 ## 作业:使用 OpenCompass评测
 
+**遇到错误请运行：**
+
+```bash
+pip install -r requirements.txt
+pip install protobuf
+export MKL_SERVICE_FORCE_INTEL=1
+export MKL_THREADING_LAYER=GNU
+
+```
+
+### 命令行快速评测
+
+OpenCompass 预定义了许多模型和数据集的配置，你可以通过 工具 列出所有可用的模型和数据集配置。
+
+```bash
+# 列出所有配置
+# python tools/list_configs.py
+# 列出所有跟 llama (模型)及 ceval（数据集） 相关的配置
+python tools/list_configs.py llama ceval
+```
+
+
+
+
+
+
+
+
+
+
+
 
 
 - 运行   在数据集上测试 感觉下面的命令没用GPU资源.....
+
 ```bash
 
 cd ~/opencompass
@@ -38,6 +70,8 @@ python run.py --datasets ceval_gen \
 
 ####  结果  
 
+> 上面的配置 我自己跑 老是没有结果 .....报错 05/04 18:46:48 - OpenCompass - ERROR - /root/opencompass/opencompass/tasks/openicl_eval.py - _score - 241 - Task [opencompass.models.huggingface.HuggingFace_Meta-Llama-3-8B-Instruct_Meta-Llama-3-8B-Instruct/ceval-high_school_physics]: No predictions found.
+
  ![2024-04-22-17-08](https://github.com/jingkeke/internLM2/assets/16113137/7c079449-ac43-4a9f-a66d-dcd0ee254147)
 
  > 默认输出 outputs/defaults/时间戳下
@@ -53,8 +87,56 @@ ceval-physician                                 -          -         -       -
 
 
 
+### 快速评测
 
-##### 查看支持的数据集和模型
+#### config 快速评测
+
+在 `config` 下添加模型配置文件 `eval_llama3_8b_demo.py`
+
+```python
+from mmengine.config import read_base
+
+with read_base():
+    from .datasets.mmlu.mmlu_gen_4d595a import mmlu_datasets
+
+datasets = [*mmlu_datasets]
+
+from opencompass.models import HuggingFaceCausalLM
+
+models = [
+dict(
+type=HuggingFaceCausalLM,
+abbr='Llama3_8b', # 运行完结果展示的名称
+path='/root/model/Meta-Llama-3-8B-Instruct', # 模型路径
+tokenizer_path='/root/model/Meta-Llama-3-8B-Instruct', # 分词器路径
+model_kwargs=dict(
+device_map='auto',
+trust_remote_code=True
+),
+tokenizer_kwargs=dict(
+padding_side='left',
+truncation_side='left',
+trust_remote_code=True,
+use_fast=False
+),
+generation_kwargs={"eos_token_id": [128001, 128009]},
+batch_padding=True,
+max_out_len=100,
+max_seq_len=2048,
+batch_size=16,
+run_cfg=dict(num_gpus=1),
+)
+]
+```
+
+
+
+运行`python run.py configs/eval_llama3_8b_demo.py`
+
+
+
+
+### 查看支持的数据集和模型
 - 列出所有跟 internlm 及 ceval 相关的配置
 ```bash
 python tools/list_configs.py internlm ceval
@@ -92,5 +174,4 @@ python tools/list_configs.py internlm ceval
 ####  T-Eval：工具agent 能力评测基准
 
 ![2024-04-22-16-29](https://github.com/jingkeke/internLM2/assets/16113137/93468382-bfd1-4162-94f8-c58bd55b1458)
-
 
