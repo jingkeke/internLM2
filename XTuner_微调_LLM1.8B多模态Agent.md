@@ -69,7 +69,144 @@ xtuner chat /root/ft/final_model --prompt-template internlm2_chat
 
 ```
 
-### 图像微调
+### 图像微调测试 
+
+#### 测试步骤
+LLaVA方案中，给LLM增加视觉能力的过程，即是训练Image Projector文件的过程。 该过程分为2个阶段：Pretrain(粗看,需要强GPU ,有8卡A100)和Finetune(1.8B模型 24G显存,8B模型大概45G显存 )。
+```mermaid
+flowchart LR;
+    subgraph Pretrain阶段
+    a[("图像<br>+<br>标题(短文本)")] --> b{显卡}
+    c(("文本单模态LLM<br>(InternLM2_Chat_1.8B)")) --> b
+    b --> d((Pretrained<br>LLaVA))
+    end
+
+    subgraph Finetune阶段
+    f[("图像<br>+<br>复杂对话文本")] --> g{显卡}
+    d --> g
+    g --> i((Finetuned<br>LLaVA))
+    end
+```
+- Finetune阶段
+Finetune阶段
+在Finetune阶段，我们会使用图片+复杂文本数据对，来对Pretrain得到的Image Projector即iter_2181.pth进行进一步的训练。
+<details>
+<summary>示例</summary>
+
+```json
+[
+  {
+    "id": "000000033471",
+    "image": "coco/train2017/000000033471.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nWhat are the colors of the bus in the image?"
+      },
+      {
+        "from": "gpt",
+        "value": "The bus in the image is white and red."
+      },
+      {
+        "from": "human",
+        "value": "What feature can be seen on the back of the bus?"
+      },
+      {
+        "from": "gpt",
+        "value": "The back of the bus features an advertisement."
+      },
+      {
+        "from": "human",
+        "value": "Is the bus driving down the street or pulled off to the side?"
+      },
+      {
+        "from": "gpt",
+        "value": "The bus is driving down the street, which is crowded with people and other vehicles."
+      }
+    ]
+  },
+  {
+    "id": "000000052846",
+    "image": "coco/train2017/000000052846.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nWhere is the cat positioned in the image?"
+      },
+      {
+        "from": "gpt",
+        "value": "The cat is positioned on top of the back of the couch in the living room."
+      }
+    ]
+  }
+ ]
+```
+
+
+</details>
+我们可以效法LLaVA作者的做法，将自己的图片发送给GPT，要求其按照上述格式生成若干条问答对。
+<details>
+<summary>prompts</summary>
+
+Create a dataset for me, following this format.
+```json
+[
+  {
+    "id": "<random_number_string>",
+    "image": "test_img/oph.jpg",
+    "conversations": [
+      {
+        "from": "human",
+        "value": "<image>\nDescribe this image."
+      },
+      {
+        "from": "gpt",
+        "value": "<answer1>"
+      },
+      {
+        "from": "human",
+        "value": "<question2>"
+      },
+      {
+        "from": "gpt",
+        "value": "<answer2>"
+      },
+      {
+        "from": "human",
+        "value": "<question3>"
+      },
+      {
+        "from": "gpt",
+        "value": "<answer3>"
+      }
+    ]
+  }
+]
+```
+The questions and answers, please generate for me, based on the image I sent to you. Thes questions should be from the shallow to the deep, and the answers should be as detailed and correct as possible. The questions and answers should be stick to the contents in the image itself, like objects, peoples, equipment, environment, purpose, color, attitude, etc. 5 question and answer pairs.
+</details>
+<br>
+
+
+#### Finetune 微调实战 
+- 下载项目  `/root/tutorial`
+```
+cd ~ && git clone https://github.com/InternLM/tutorial -b camp2 && conda activate xtuner0.1.17 && cd tutorial
+
+```
+
+- `/root/tutorial/xtuner/llava/`目录下的文件结构应该是这样：
+
+```bash
+|-- llava_data
+|   |-- repeat.py
+|   |-- repeated_data.json
+|   |-- test_img
+|   |   `-- oph.jpg
+|   `-- unique_data.json
+`-- llava_internlm2_chat_1_8b_qlora_clip_vit_large_p14_336_lora_e1_gpu8_finetune_copy.py
+```
+
 
 -  查询xtuner内置配置文件
 ```
