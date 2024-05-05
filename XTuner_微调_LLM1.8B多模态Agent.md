@@ -88,7 +88,7 @@ flowchart LR;
     end
 ```
 - Finetune阶段
-Finetune阶段
+
 在Finetune阶段，我们会使用图片+复杂文本数据对，来对Pretrain得到的Image Projector即iter_2181.pth进行进一步的训练。
 <details>
 <summary>示例</summary>
@@ -142,9 +142,9 @@ Finetune阶段
  ]
 ```
 
-
 </details>
 我们可以效法LLaVA作者的做法，将自己的图片发送给GPT，要求其按照上述格式生成若干条问答对。
+
 <details>
 <summary>prompts</summary>
 
@@ -196,6 +196,8 @@ cd ~ && git clone https://github.com/InternLM/tutorial -b camp2 && conda activat
 ```
 
 - `/root/tutorial/xtuner/llava/`目录下的文件结构应该是这样：
+  - [llava_internlm2_chat_1_8b_qlora_clip_vit_large_p14_336_lora_e1_gpu8_finetune_copy.py](./llava_internlm2_chat_1_8b_qlora_clip_vit_large_p14_336_lora_e1_gpu8_finetune_copy.py)
+
 
 ```bash
 |-- llava_data
@@ -214,41 +216,53 @@ xtuner list-cfg -p llava_internlm2_chat_1_8b
 ```
 
 - 训练数据格式 
-```
-[
-  {
-    "id": "000000033471",
-    "image": "coco/train2017/000000033471.jpg",
-    "conversations": [
-      {
-        "from": "human",
-        "value": "<image>\nWhat are the colors of the bus in the image?"
-      },
-      {
-        "from": "gpt",
-        "value": "The bus in the image is white and red."
-      },
-      {
-        "from": "human",
-        "value": "What feature can be seen on the back of the bus?"
-      },
-      {
-        "from": "gpt",
-        "value": "The back of the bus features an advertisement."
-      },
-      {
-        "from": "human",
-        "value": "Is the bus driving down the street or pulled off to the side?"
-      },
-      {
-        "from": "gpt",
-        "value": "The bus is driving down the street, which is crowded with people and other vehicles."
-      }
-    ]
-  },
+##### 验证结果 对比Finetune前后的性能差异
+
+######  Finetune前
+
+> 即：**加载 1.8B 和 Pretrain阶段产物(iter_2181) 到显存。**
+
+```bash
+# 解决小bug
+export MKL_SERVICE_FORCE_INTEL=1
+export MKL_THREADING_LAYER=GNU
+
+# pth转huggingface
+xtuner convert pth_to_hf \
+  llava_internlm2_chat_1_8b_clip_vit_large_p14_336_e1_gpu8_pretrain \
+  /root/share/new_models/xtuner/iter_2181.pth \
+  /root/tutorial/xtuner/llava/llava_data/iter_2181_hf
+
+# 启动！
+xtuner chat /root/share/new_models/Shanghai_AI_Laboratory/internlm2-chat-1_8b \
+  --visual-encoder /root/share/new_models/openai/clip-vit-large-patch14-336 \
+  --llava /root/tutorial/xtuner/llava/llava_data/iter_2181_hf \
+  --prompt-template internlm2_chat \
+  --image /root/tutorial/xtuner/llava/llava_data/test_img/oph.jpg
 ```
 
+###### Finetune后
 
+> 即：**加载 1.8B 和 Fintune阶段产物 到显存。**
+
+```bash
+# 解决小bug
+export MKL_SERVICE_FORCE_INTEL=1
+export MKL_THREADING_LAYER=GNU
+
+# pth转huggingface
+xtuner convert pth_to_hf \
+  /root/tutorial/xtuner/llava/llava_internlm2_chat_1_8b_qlora_clip_vit_large_p14_336_lora_e1_gpu8_finetune_copy.py \
+  /root/tutorial/xtuner/llava/work_dirs/llava_internlm2_chat_1_8b_qlora_clip_vit_large_p14_336_lora_e1_gpu8_finetune_copy/iter_1200.pth \
+  /root/tutorial/xtuner/llava/llava_data/iter_1200_hf
+
+# 启动！
+xtuner chat /root/share/new_models/Shanghai_AI_Laboratory/internlm2-chat-1_8b \
+  --visual-encoder /root/share/new_models/openai/clip-vit-large-patch14-336 \
+  --llava /root/tutorial/xtuner/llava/llava_data/iter_1200_hf \
+  --prompt-template internlm2_chat \
+  --image /root/tutorial/xtuner/llava/llava_data/test_img/oph.jpg
+```
 
 
 
