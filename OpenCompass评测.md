@@ -87,6 +87,7 @@ ceval-physician                                 -          -         -       -
 
 
 
+
 ### 快速评测
 
 #### config 快速评测
@@ -143,6 +144,34 @@ python tools/list_configs.py internlm ceval
 
 ```
 
+### 自定义数据集评测配置[ref](https://blog.csdn.net/nlpx2000/article/details/138042822)
+
+介绍自定义ceval数据集评测配置方法，详细数据集配置请参见opencompass官方文档。
+
+第一步：opencompass/config/database/ceval目录下新建或者修改ceval文件，按照现有文件格式修改！以ceval_gen_5f30c7.py文件为例修改或新建：注意红框处的修改。
+
+
+
+
+第二步：opencompass/ opencompass/database/目录下新建或者修改ceval文件，按照现有文件格式修改加载数据集！以ceval.py文件为例修改或新建，文件中的新建类，在第一步文件中必须引入该文件中实现的模块。
+
+
+
+第三步：opencompass/ opencompass/database/_init_.py文件中添加第二步中的py文件，注册实现的模块。
+
+
+
+第四步：opencompass/config/database/ceval/ceval_gen.py文件中修改为第一步中的数据集文件名称：
+
+
+
+第五步：执行命令：
+
+```bash
+
+python run.py --datasets ceval_gen --hf-path /share/new_models/Shanghai_AI_Laboratory/internlm2-chat-1_8b --tokenizer-path /share/new_models/Shanghai_AI_Laboratory/internlm2-chat-1_8b --tokenizer-kwargs padding_side='left' truncation='left' trust_remote_code=True --model-kwargs trust_remote_code=True device_map='auto' --max-seq-len 1024 --max-out-len 16 --batch-size 2 --num-gpus 1 --debug
+
+```
 
 
 ## 介绍 
