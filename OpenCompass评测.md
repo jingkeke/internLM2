@@ -150,19 +150,23 @@ python tools/list_configs.py internlm ceval
 
 第一步：opencompass/config/database/ceval目录下新建或者修改ceval文件，按照现有文件格式修改！以ceval_gen_5f30c7.py文件为例修改或新建：注意红框处的修改。
 
+![image](https://github.com/jingkeke/internLM2/assets/16113137/8957a914-db14-4465-bbb5-6e53dc73a9fb)
 
 
 
 第二步：opencompass/ opencompass/database/目录下新建或者修改ceval文件，按照现有文件格式修改加载数据集！以ceval.py文件为例修改或新建，文件中的新建类，在第一步文件中必须引入该文件中实现的模块。
+![image](https://github.com/jingkeke/internLM2/assets/16113137/97f88d9a-2883-4d29-b455-8f2f610bc101)
 
 
 
 第三步：opencompass/ opencompass/database/_init_.py文件中添加第二步中的py文件，注册实现的模块。
 
+![image](https://github.com/jingkeke/internLM2/assets/16113137/8bccc0c4-6242-4baf-a694-0360c7fff01f)
 
 
 第四步：opencompass/config/database/ceval/ceval_gen.py文件中修改为第一步中的数据集文件名称：
 
+![image](https://github.com/jingkeke/internLM2/assets/16113137/b9b57165-d70c-4c02-b0e8-c6c1f2e7ab71)
 
 
 第五步：执行命令：
