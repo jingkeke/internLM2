@@ -70,7 +70,7 @@ python run.py --datasets ceval_gen \
 
 ####  结果  
 
-> 上面的配置 我自己跑 老是没有结果 .....报错 05/04 18:46:48 可能是 nvidia 驱动的问题    - OpenCompass - ERROR - /root/opencompass/opencompass/tasks/openicl_eval.py - _score - 241 - Task [opencompass.models.huggingface.HuggingFace_Meta-Llama-3-8B-Instruct_Meta-Llama-3-8B-Instruct/ceval-high_school_physics]: No predictions found.
+> ~~上面的配置 我自己跑 老是没有结果 .....报错 05/04 18:46:48 可能是 nvidia 驱动的问题    - OpenCompass - ERROR - /root/opencompass/opencompass/tasks/openicl_eval.py - _score - 241 - Task [opencompass.models.huggingface.HuggingFace_Meta-Llama-3-8B-Instruct_Meta-Llama-3-8B-Instruct/ceval-high_school_physics]: No predictions found.~~
 
  ![2024-04-22-17-08](https://github.com/jingkeke/internLM2/assets/16113137/7c079449-ac43-4a9f-a66d-dcd0ee254147)
 
@@ -84,6 +84,27 @@ ceval-physician                                 -          -         -       -
 04/22 17:05:28 - OpenCompass - INFO - write csv to /root/opencompass/outputs/default/20240422_170005/summary/summary_20240422_170005.csv
 
 ```
+
+- 2024-05-12 20:10  升级到最新的opencompass( commit 833a35140b21a)    占用显存  23731MiB ,成功
+
+  ```bash
+   # 测试参考文档  https://github.com/SmartFlowAI/Llama3-Tutorial/blob/main/docs/opencompass.md
+   python run.py --datasets ceval_gen --hf-path /root/model/Meta-Llama-3-8B-Instruct --tokenizer-path /root/model/Meta-Llama-3-8B-Instruct --tokenizer-kwargs padding_side='left' truncation='left' trust_remote_code=True --model-kwargs trust_remote_code=True device_map='auto' --max-seq-len 2048 --max-out-len 16 --batch-size 1 --num-gpus 1 --debug
+  
+  # 结果 耗时大概1.5小时 
+  
+  ceval-other                                     -          naive_average  gen                                                                                50.05
+  ceval-hard                                      -          naive_average  gen                                                                                32.65
+  ceval                                           -          naive_average  gen                                                                                48.63
+  05/12 20:24:26 - OpenCompass - INFO - write summary to /root/opencompass/outputs/default/20240512_200046/summary/summary_20240512_200046.txt
+  05/12 20:24:26 - OpenCompass - INFO - write csv to /root/opencompass/outputs/default/20240512_200046/summary/summary_20240512_200046.csv
+  
+  
+  ```
+  
+  ![](/Users/jingzy/develop/my/my-scripts-shell-sql/python_22/gpt/learn/internLM2/sources/2024-05-12-20-25.png)
+
+
 
 
 
