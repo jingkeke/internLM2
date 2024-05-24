@@ -189,6 +189,24 @@ The questions and answers, please generate for me, based on the image I sent to 
 </details>
 <br>
 
+![使用gpt4生成测试数据](sources/2024-05-15-07-29.png)
+
+####  Pretain
+
+Pretrain阶段相当于是开发LLM时预训练工作，对硬件要求非常高，有8卡的学有余力同学可以自行尝试。详见XTuner-LLaVA和LLaVA。
+
+```bash
+
+
+NPROC_PER_NODE=8 xtuner train llava_internlm2_chat_1_8b_clip_vit_large_p14_336_e1_gpu8_pretrain --deepspeed deepspeed_zero2
+
+NPROC_PER_NODE=8 xtuner train llava_internlm2_chat_1_8b_qlora_clip_vit_large_p14_336_lora_e1_gpu8_finetune --deepspeed deepspeed_zero2
+```
+
+
+
+
+
 
 #### Finetune 微调实战 
 - 下载项目  `/root/tutorial`
