@@ -11,6 +11,49 @@
 
 - （可选）参考 [代码](https://github.com/InternLM/HuixiangDou/tree/main/web) 在自己的服务器部署茴香豆 Web 版
 
+
+
+- 一共要启动三个终端 
+  
+  <details>
+             <summary style="font-size:20">bash 命令</summary>
+  
+   ```bash
+   python3 -m huixiangdou.service.llm_server_hybrid --config_path config.ini
+   
+   python3 -m web.proxy.main
+   python -m web.main
+   
+   ```
+  
+  </details>
+  
+  
+  
+  - 需要配置redis (lstuido 运行 不能加sudo .., 也能跑, redis端口号需要改)
+
+![2024-05-26-07-13](assets/2024-05-26-07-13.png)
+
+- 前端页面 
+
+![2024-05-26-07-39](assets/2024-05-26-07-39.png)
+
+-  测试网页版发现的问题 (新手, 不熟, 需要多看看文档)
+   -  感觉打开 网络搜索 开关后不是很聪明, 可能是用服务器部署, 不能访问外网? 
+   -  询问excel 表格内容也不是很聪明, 需要再看看文档 .
+   -  感觉处理上传文档也挺费时间  ,因为需要 做 tokensize ? 
+
+
+
+
+
+
+
+
+
+
+
+
 ### 2.在 `InternLM Studio` 上部署茴香豆技术助手
 
 

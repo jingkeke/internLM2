@@ -99,7 +99,13 @@ RAG （Retrieval Augmented Generation ）是一种结合了检索（Retrieval）
 - [3.4 配置文件解析](https://github.com/InternLM/Tutorial/blob/camp2/huixiangdou/readme.md#34-配置文件解析)
 - [3.5 文件结构](https://github.com/InternLM/Tutorial/blob/camp2/huixiangdou/readme.md#35-文件结构)
 
-# 
+
+
+# 茴香豆零编程接入微信
+
+参考 [ref ](https://zhuanlan.zhihu.com/p/686579577)    **原理** 是 android 应用会扫描屏幕, 然后 自己判断 是否自动输入内容?  感觉挺牛逼的
+
+
 
 
 
