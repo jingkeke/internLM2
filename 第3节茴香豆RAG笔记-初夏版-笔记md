@@ -1,6 +1,6 @@
 #  笔记
 
-茴香豆 做智能问答, 
+茴香豆 做智能问答 
 
 - 配置 good_questions.json
 - 配置 bad_questions.json
@@ -101,7 +101,7 @@ RAG （Retrieval Augmented Generation ）是一种结合了检索（Retrieval）
 
 
 
-# 茴香豆零编程接入微信
+## 茴香豆零编程接入微信
 
 参考 [ref ](https://zhuanlan.zhihu.com/p/686579577)    **原理** 是 android 应用会扫描屏幕, 然后 自己判断 是否自动输入内容?  感觉挺牛逼的
 
