@@ -17,6 +17,8 @@
 
 ![2024-04-02-07-07](https://github.com/jingkeke/internLM2/assets/16113137/6a34f0ed-82d7-4e08-8059-12bd95c69279)
 
+
+
 ## 2 使用[书生·浦语 Web](https://internlm-chat.intern-ai.org.cn/) 和浦语对话，和书生·浦语对话，并找到书生·浦语 1 处表现不佳的案例(比如指令遵循表现不佳的案例)，提交到[问卷](https://aicarrier.feishu.cn/share/base/form/shrcn9l8Di10nz4xmheh3LLJfJd)
 
 >  我的 问卷  https://aicarrier.feishu.cn/share/base/form/shrcn9l8Di10nz4xmheh3LLJfJd
@@ -96,99 +98,14 @@ snapshot_download("Shanghai_AI_Laboratory/internlm2-chat-1_8b",
 
 
 
-
-
-
-##  运行微调虚拟人模型  八戒-Chat-1.8B 模型
-
-- 八戒-Chat-1.8B：https://www.modelscope.cn/models/JimmyMa99/BaJie-Chat-mini/summary
-- Chat-嬛嬛-1.8B：https://openxlab.org.cn/models/detail/BYCJS/huanhuan-chat-internlm2-1_8b
-- Mini-Horo-巧耳：https://openxlab.org.cn/models/detail/SaaRaaS/Horowag_Mini
-
-<details>
-           <summary style="font-size:20">代码</summary>
-
-
-
 ​        
 
-```python
-from transformers import AutoTokenizer, AutoModelForCausalLM, GenerationConfig
-import torch
-
-model_name_or_path = "八戒-Chat模型地址"
-
-tokenizer = AutoTokenizer.from_pretrained(model_name_or_path, trust_remote_code=True)
-model = AutoModelForCausalLM.from_pretrained(model_name_or_path, trust_remote_code=True, torch_dtype=torch.bfloat16).cuda()
-model.eval()  
-
-meta_instruction = ('你是猪八戒，猪八戒说话幽默风趣，说话方式通常表现为直率、幽默，有时带有一点自嘲和调侃。'
-                        '你的话语中常常透露出对食物的喜爱和对安逸生活的向往，同时也显示出他机智和有时的懒惰特点。'
-                        '尽量保持回答的自然回答，当然你也可以适当穿插一些文言文，另外，书生·浦语是你的好朋友，是你的AI助手。')
-                        
-response, history = model.chat(tokenizer, '你好', meta_instruction=meta_instruction, history=[])
-print(response)
-```
-
-</details>
-
-
-
-
-![2024-04-02-08-33](https://github.com/jingkeke/internLM2/assets/16113137/8f1125a6-e40d-4048-aae2-3a0a2952bafe)
-
-## 
-
-
-
-# 笔记
-
-### **初步介绍 Lagent 相关知识**
-
-![2024-05-25-06-56](assets/2024-05-25-06-56.png)
 
 
 
 
 
-## 6 **附录**
-
-- 当我们建立安全链接之后，如果想要将其删除可以选择以下命令：
-
-```
-unlink link_name
-```
-
-
-
-## [浦语·灵笔2](https://gitee.com/internlm/InternLM-XComposer)
-
-**浦语·灵笔2**是基于[书生·浦语2](https://gitee.com/link?target=https%3A%2F%2Fgithub.com%2FInternLM%2FInternLM%2Ftree%2Fmain)大语言模型研发的突破性的图文多模态大模型，具有非凡的图文写作和图像理解能力，在多种应用场景表现出色：
-
-我们开源的 浦语·灵笔2 包括两个版本:
-
-- **InternLM-XComposer2-VL-7B**  基于书生·浦语2-7B大语言模型训练，面向多模态评测和视觉问答。浦语·灵笔2-视觉问答-7B是目前最强的基于7B量级语言模型基座的图文多模态大模型，领跑多达13个多模态大模型榜单。
-- InternLM-XComposer2-7B 进一步微调，支持自由指令输入图文写作的图文多模态大模型。
-- 更多方法细节请参考[技术报告](https://gitee.com/link?target=https%3A%2F%2Farxiv.org%2Fabs%2F2401.16420)．
-
-
-
-```
-git clone https://gitee.com/internlm/InternLM-XComposer.git
-
-```
-
-
-
-- 支持上传图片生成 文稿
-
-![2024-05-25-10-15](assets/2024-05-25-10-15.png)
-
-
-
-
-
-
+ 
 
 
 
