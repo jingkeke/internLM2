@@ -100,6 +100,113 @@ xtuner chat /root/ft/final_model --prompt-template internlm2_chat
 
 
 - 将自我认知的模型上传到 OpenXLab，并将应用部署到 OpenXLab（优秀学员必做）
-- 复现多模态微调（优秀学员必做）
+- ### 复现多模态微调（优秀学员必做）
+
+
+
+<details>
+           <summary style="font-size:20">运行代码</summary>
+- 下载项目  `/root/tutorial`
+
+```
+cd ~ && git clone https://github.com/InternLM/tutorial -b camp2 && conda activate xtuner0.1.17 && cd tutorial
+
+```
+
+- `/root/tutorial/xtuner/llava/`目录下的文件结构应该是这样：
+  - [llava_internlm2_chat_1_8b_qlora_clip_vit_large_p14_336_lora_e1_gpu8_finetune_copy.py](./llava_internlm2_chat_1_8b_qlora_clip_vit_large_p14_336_lora_e1_gpu8_finetune_copy.py)
+
+
+```bash
+|-- llava_data
+|   |-- repeat.py
+|   |-- repeated_data.json
+|   |-- test_img
+|   |   `-- oph.jpg
+|   `-- unique_data.json
+`-- llava_internlm2_chat_1_8b_qlora_clip_vit_large_p14_336_lora_e1_gpu8_finetune_copy.py
+```
+
+
+-  查询xtuner内置配置文件
+
+```
+xtuner list-cfg -p llava_internlm2_chat_1_8b
+```
+
+- 训练数据
+
+```bash
+cd /root/tutorial/xtuner/llava/
+xtuner train /root/tutorial/xtuner/llava/llava_internlm2_chat_1_8b_qlora_clip_vit_large_p14_336_lora_e1_gpu8_finetune_copy.py --deepspeed deepspeed_zero2
+```
+
+
+![2024-05-05-15-08](https://github.com/jingkeke/internLM2/assets/16113137/87a0bb79-0989-4305-997d-c4f5c8bc6a48)
+
+
+##### 
+
+
+​        
+
+###### Finetune后 结果对比
+
+> 即：**加载 1.8B 和 Fintune阶段产物 到显存。**
+
+```bash
+# 解决小bug
+export MKL_SERVICE_FORCE_INTEL=1
+export MKL_THREADING_LAYER=GNU
+
+# pth转huggingface
+#xtuner convert pth_to_hf 参数:
+#  config                config file name or path.
+#  pth_model             pth model file
+#  save_dir              the directory to save HuggingFace model
+
+
+xtuner convert pth_to_hf \
+  /root/tutorial/xtuner/llava/llava_internlm2_chat_1_8b_qlora_clip_vit_large_p14_336_lora_e1_gpu8_finetune_copy.py \
+  /root/tutorial/xtuner/llava/work_dirs/llava_internlm2_chat_1_8b_qlora_clip_vit_large_p14_336_lora_e1_gpu8_finetune_copy/iter_1200.pth \
+  /root/tutorial/xtuner/llava/llava_data/iter_1200_hf
+
+# 启动！
+xtuner chat /root/share/new_models/Shanghai_AI_Laboratory/internlm2-chat-1_8b \
+  --visual-encoder /root/share/new_models/openai/clip-vit-large-patch14-336 \
+  --llava /root/tutorial/xtuner/llava/llava_data/iter_1200_hf \
+  --prompt-template internlm2_chat \
+  --image /root/tutorial/xtuner/llava/llava_data/test_img/oph.jpg
+```
+
+</details>
+
+
+
+- 输出结果:
+  ![2024-05-05-15-16](https://github.com/jingkeke/internLM2/assets/16113137/e841f2db-d344-44e8-92b8-aa0e6b8c9d5f)
+
+![2024-05-05-15-26](https://github.com/jingkeke/internLM2/assets/16113137/5af4f3b4-f819-457c-8f24-b5f8b719dc98)
+
+
+
+
+
+```bash
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 OpenXLab 部署教程：https://github.com/InternLM/Tutorial/tree/camp2/tools/openxlab-deploy
