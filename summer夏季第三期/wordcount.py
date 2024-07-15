@@ -8,19 +8,34 @@ def wordcount(text):
     Returns:
     dict: A dictionary where keys are words and values are the counts of those words.
     """
-    from collections import defaultdict
+    from collections import Counter
     import re
 
-    # Use a defaultdict to automatically handle missing keys
-    word_counts = defaultdict(int)
 
     # Use regex to find words, considering words as sequences of alphanumeric characters
+    # 在上面的代码中，`\b\w+\b` 是一个正则表达式模式：
+
+# - `\b` 代表单词边界（word boundary），也就是说匹配整个单词，而不是部分单词。
+# - `\w+` 代表匹配一个或多个字母、数字或下划线字符（word characters）。
+# - `re.findall()` 函数会在字符串 `text.lower()` 中找到所有匹配的模式，然后将结果返回为一个列表。
+
     words = re.findall(r'\b\w+\b', text.lower())
 
-    for word in words:
-        word_counts[word] += 1
+    return Counter(words)
 
-    return dict(word_counts)
+
+
 if __name__ == "__main__":
-    text = "Got this panda plush toy for my daughter's birthday, she loved it! who loves it and takes it everywhere. It's soft and super cute, and its face has a friendly look. It's a bit small for what I paid though. I think there"
+    text = """
+                Got this panda plush toy for my daughter's birthday, 
+                who loves it and takes it everywhere. It's soft and 
+                super cute, and its face has a friendly look. It's 
+                a bit small for what I paid though. I think there 
+                might be other options that are bigger for the 
+                same price. It arrived a day earlier than expected, 
+                so I got to play with it myself before I gave it 
+                to her.
+                """
+
+
     print(wordcount(text))
