@@ -22,5 +22,5 @@ def wordcount(text):
 
     return dict(word_counts)
 if __name__ == "__main__":
-    text = "Got this panda plush toy for my daughter's birthday, she loved it!"
+    text = "Got this panda plush toy for my daughter's birthday, she loved it! who loves it and takes it everywhere. It's soft and"
     print(wordcount(text))
