@@ -29,6 +29,15 @@ GitHub 仓库链接   https://github.com/jingkeke/internLM2/tree/main
 
 
 ## 学习 
+https://github.com/InternLM/Tutorial/blob/camp3/docs/L0/Git/readme.md
+
+
+### 常用 Git 操作
+
+- git reflog
+查看命令历史：查看仓库的操作历史
+
+- `git cherry-pick	`   选择一个提交，将其作为新的提交引入
 
 
 
@@ -58,8 +67,9 @@ git config --local user.email "your.email@example.com"
   ```
 
 
+### 常用插件
 
-
+Git History: Git 日志查看器。
 
 
 
