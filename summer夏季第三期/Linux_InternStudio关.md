@@ -130,6 +130,23 @@ conda env create -f  myenv.yml
 
 
 
+#### pip类似的方法 
+
+```
+pip freeze > requirements.txt
+pip install -r requirements.txt
+```
+
+
+
+
+
+
+
+
+
+
+
 ### studio-conda使用与Shell
 
 #### studio-smi是用来查看查看虚拟内存占用的
