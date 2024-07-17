@@ -87,19 +87,20 @@ vscode也支持通过remote的方法连接我们在命令行中发起的debug se
 
 还是点击VSCode侧边栏的“Run and Debug”（运行和调试)，单击"create a lauch.json file"
 
-![img](https://aicarrier.feishu.cn/space/api/box/stream/download/asynccode/?code=NmRjMzBhOTQ1YzZiZGQxMzVhZDlkNTk4MjMxMWY0NWFfU3hvOHdmT1NNUG9SNlNyd3VFdG0zZVc5cXdHb3BXTE5fVG9rZW46V2N1SWJqQjBab3Bmc0Z4VW1XWWNQUUdrbkVmXzE3MjEwMDk4NzI6MTcyMTAxMzQ3Ml9WNA)
+![2024-07-17-09-40](https://github.com/user-attachments/assets/9017b984-1846-447b-b483-8a0370880597)
+
 
 选择debugger时选择python debuger。选择debug config时选择remote attach就行，随后会让我们选择debug server的地址，因为我们是在本地debug，所以全都保持默认直接回车就可以了，也就是我们的server地址为localhost:5678。
 
-![img](https://aicarrier.feishu.cn/space/api/box/stream/download/asynccode/?code=NDY0NzJiODE0YTU4MzQ4MTVjM2RlZDRkZGNjZTFkM2ZfTDhPcDZ6WTJvbVR6SEtrYm01TW1qanpIbjVJZXJzakxfVG9rZW46THpaaGI5Y2djb2JQRmV4TzNUOGNkRjlIbk5XXzE3MjEwMDk4NzI6MTcyMTAxMzQ3Ml9WNA)
+![2024-07-17-09-40](https://github.com/user-attachments/assets/1a8918d5-79a4-44ae-afd0-a46048db7c2e)
 
-![img](https://aicarrier.feishu.cn/space/api/box/stream/download/asynccode/?code=NTU1MTIyNTllMzI0ZWJmMzIyM2FlYTJkN2ZjMTU3M2VfcWFFRjBRaUxCM2kyM2hxRnh3d3JsdzVxNUlhbElCZTdfVG9rZW46R091RmJ4ODY1b1FMeGt4d2pUemMxZTJVbnVoXzE3MjEwMDk4NzI6MTcyMTAxMzQ3Ml9WNA)
 
-![img](https://aicarrier.feishu.cn/space/api/box/stream/download/asynccode/?code=ZGM0MzM0MzE1ODk1Y2IxZWYyOGVjMGNmOTIwYWQ0YWFfZldqQTBVaVZDV29jYmRPakNoRWhnNGZMb0ppNFpoVmpfVG9rZW46TVJmdGJBb2Njbzh6cWN4NlMwMGN2NXV3bkVnXzE3MjEwMDk4NzI6MTcyMTAxMzQ3Ml9WNA)
+![2024-07-17-09-40](https://github.com/user-attachments/assets/a9b096a7-44e2-451b-99db-1e75d0a06f17)
+
 
 配置完以后会打开配置的json文件，但这不是重点，可以关掉。这时我们会看到run and debug界面有变化，出现了debug选项。
+![2024-07-17-09-40](https://github.com/user-attachments/assets/259ab1b4-a296-45e9-9963-b18f338ccdac)
 
-![img](https://aicarrier.feishu.cn/space/api/box/stream/download/asynccode/?code=M2ExMjQ3MjhjMmM4OTcyZjM2NjM4ODlmOWY0MDQ0ZmFfVlNXMUw4dno2c0dzZHVuMWJBTFNEUTQ1MHpoM1RvQlNfVG9rZW46RmVvcmJiTUtBb1RpNFl4TldubWNTSXV6bnBnXzE3MjEwMDk4NzI6MTcyMTAxMzQ3Ml9WNA)
 
 #### debug命令行
 
