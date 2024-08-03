@@ -1,4 +1,3 @@
-
 # [LangGPT结构化提示词编写实践](https://github.com/InternLM/Tutorial/tree/camp3/docs/L1/Prompt)
 
 > LangGPT 是 **Language For GPT-like LLMs** 的简称，中文名为结构化提示词。LangGPT 是一个帮助你编写高质量提示词的工具，理论基础是我们提出的一套模块化、标准化的提示词编写方法论——结构化提示词。我们希望揭开提示工程的神秘面纱，为大众提供一套可操作、可复现的提示词方法论、工具和交流社群。我们的愿景是让人人都能写出高质量提示词。LangGPT社区文档：[https://langgpt.ai](https://langgpt.ai/)
@@ -12,6 +11,34 @@
 - **任务要求**：利用LangGPT优化提示词，使LLM输出正确结果。**完成一次并提交截图即可**
 
 
+
+####  作业:
+
+
+
+
+
+```bash
+http://localhost:8501	
+# 服务器 启动 server 
+CUDA_VISIBLE_DEVICES=0 lmdeploy serve api_server /share/new_models/Shanghai_AI_Laboratory/internlm2-chat-1_8b --server-port 23333 --api-keys internlm2
+
+# 服务器启动 网页
+git clone https://github.com/InternLM/Tutorial.git (branch camp3)
+cd Tutorial/tools
+python -m streamlit run chat_ui.py
+
+
+# 直接使用 LangGPT 生成提示词：
+  1. 月之暗面 Kimi × LangGPT 提示词专家: https://kimi.moonshot.cn/kimiplus/conpg00t7lagbbsfqkq0
+  2. OpenAI 商店 LangGPT 代码诗人：https://chat.openai.com/g/g-Apzuylaqk-langgpt-dai-ma-shi-ren
+```
+
+
+
+
+
+- 提示词:
 
 ```
 - Role: 数学专家
@@ -34,9 +61,15 @@
 
 
 
-​	![2024-08-03-16-07](assets/2024-08-03-16-07.png)
 
 
+- 结果 截图
+
+![2024-08-03-16-07](assets/2024-08-03-16-07.png)
+
+- 启动服务截图
+
+![2024-08-03-16-13](assets/2024-08-03-16-13.png)
 
 ## 进阶任务 (闯关不要求完成此任务)
 
