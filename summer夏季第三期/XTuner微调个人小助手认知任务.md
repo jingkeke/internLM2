@@ -23,11 +23,9 @@ logits_warper = model._get_logits_warper(generation_config, device='cuda'
 
 
 
-<<<<<<< HEAD
-![](2024-08-19-11-25.png)
-=======
+
 ![](./assets/2024-08-19-11-25.png)
->>>>>>> 573aca8 (xtuner 微调个人小助手认知任务.md)
+
 
 
 ## 进阶任务（闯关不要求完成此任务）
