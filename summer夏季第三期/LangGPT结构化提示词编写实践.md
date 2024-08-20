@@ -1,4 +1,10 @@
+
+
 # [LangGPT结构化提示词编写实践](https://github.com/InternLM/Tutorial/tree/camp3/docs/L1/Prompt)
+>[任务](https://github.com/InternLM/Tutorial/blob/camp3/docs/L1/Prompt/task.md)、[文档](https://github.com/InternLM/Tutorial/blob/camp3/docs/L1/Prompt)、[视频](https://www.bilibili.com/video/BV1cU411S7iV)
+
+
+
 
 > LangGPT 是 **Language For GPT-like LLMs** 的简称，中文名为结构化提示词。LangGPT 是一个帮助你编写高质量提示词的工具，理论基础是我们提出的一套模块化、标准化的提示词编写方法论——结构化提示词。我们希望揭开提示工程的神秘面纱，为大众提供一套可操作、可复现的提示词方法论、工具和交流社群。我们的愿景是让人人都能写出高质量提示词。LangGPT社区文档：[https://langgpt.ai](https://langgpt.ai/)
 

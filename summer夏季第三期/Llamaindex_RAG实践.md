@@ -1,4 +1,5 @@
 # [Llamaindex RAG实践](https://github.com/InternLM/Tutorial/tree/camp3/docs/L1/LlamaIndex)
+> [任务](https://github.com/InternLM/Tutorial/blob/camp3/docs/L1/LlamaIndex/task.md)、[文档](https://github.com/InternLM/Tutorial/blob/camp3/docs/L1/LlamaIndex)、[视频](https://www.bilibili.com/video/BV19E4m1X79q/)
 
 ## 基础任务 (完成此任务即完成闯关)
 
