@@ -5,6 +5,11 @@
 **文档** https://github.com/InternLM/Tutorial/tree/camp2/agent
 
 
+- conda 环境可以 这样?
+```bash
+conda activate /share/pre_envs/icamp3_rag 
+
+```
 
 ### 1. Lagent 简介
 >  Lagent 轻量级智能体框架

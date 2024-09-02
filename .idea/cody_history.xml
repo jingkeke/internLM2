@@ -59,6 +59,52 @@
                   </llm>
                 </llm>
               </chat>
+              <chat>
+                <internalId value="ec0c3a00-e650-417a-9673-96f7d543604a" />
+                <llm>
+                  <llm>
+                    <model value="ollama/myqwen2:latest" />
+                    <provider value="Ollama" />
+                    <tags>
+                      <list>
+                        <option value="local" />
+                        <option value="ollama" />
+                        <option value="experimental" />
+                      </list>
+                    </tags>
+                    <title value="myqwen2:latest" />
+                    <usage>
+                      <list>
+                        <option value="chat" />
+                        <option value="edit" />
+                      </list>
+                    </usage>
+                  </llm>
+                </llm>
+              </chat>
+              <chat>
+                <internalId value="fee0322a-f6e2-40e7-a257-4e79e0ce1aaf" />
+                <llm>
+                  <llm>
+                    <model value="ollama/myqwen2:latest" />
+                    <provider value="Ollama" />
+                    <tags>
+                      <list>
+                        <option value="local" />
+                        <option value="ollama" />
+                        <option value="experimental" />
+                      </list>
+                    </tags>
+                    <title value="myqwen2:latest" />
+                    <usage>
+                      <list>
+                        <option value="chat" />
+                        <option value="edit" />
+                      </list>
+                    </usage>
+                  </llm>
+                </llm>
+              </chat>
             </list>
           </chats>
           <defaultLlm>

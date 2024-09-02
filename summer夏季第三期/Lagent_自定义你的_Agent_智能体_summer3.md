@@ -1,6 +1,10 @@
 # [**Lagent 自定义你的 Agent 智能体** ](https://github.com/InternLM/Tutorial/blob/camp3/docs/L2/Lagent/task.md#lagent-%E8%87%AA%E5%AE%9A%E4%B9%89%E4%BD%A0%E7%9A%84-agent-%E6%99%BA%E8%83%BD%E4%BD%93)
 
 > [任务](https://github.com/InternLM/Tutorial/blob/camp3/docs/L2/Lagent/task.md)、[文档](https://github.com/InternLM/Tutorial/blob/camp3/docs/L2/Lagent/readme.md)、[视频](https://www.bilibili.com/video/BV18M4m1y7sm/)
+- conda 环境可以 这样?
+```bash
+conda activate /share/pre_envs/icamp3_rag 
+```
 
 ## 基础任务（完成此任务即完成闯关）
 
