@@ -1,4 +1,12 @@
+---
+tags: 
+created: 2024-09-03 07:17:32
+lastUpdated: 2024-09-03 07:20:00
+---
+
 # OpenCompass 评测 InternLM-1.8B 实践
+
+
 |                                                                                                                                                                                                                          |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | [任务](https://github.com/InternLM/Tutorial/blob/camp3/docs/L1/OpenCompass/task.md)、[文档](https://github.com/InternLM/Tutorial/blob/camp3/docs/L1/OpenCompass/readme.md)、[视频](https://www.bilibili.com/video/BV1RM4m1279j/) |
@@ -21,6 +29,7 @@ apt-get update
 apt-get install cmake
 pip install -r requirements.txt
 pip install protobuf
+
 ```
  - 2.数据准备
 
@@ -33,10 +42,11 @@ unzip OpenCompassData-core-20231110.zip
 
 ```bash
 python tools/list_configs.py internlm ceval
+
 ```
 3.使用命令行配置参数法进行评测
 
-打开 opencompass文件夹下configs/models/hf_internlm/的`hf_internlm2_chat_1_8b.py`,贴入以下代码
+打开 opencompas s文件夹 下configs/models/hf_internlm/ 的`hf_internlm2_chat_1_8b.py`,贴入以下代码
 
 ```bash
 from opencompass.models import HuggingFaceCausalLM
@@ -83,13 +93,12 @@ python run.py --datasets ceval_gen --models hf_internlm2_chat_1_8b --debug
 
 </details>
 
-#### 截图 
+#### 截图
+
 ![](assets/2024-08-19-15-59.png)
 
 ## 进阶任务（闯关不要求完成此任务）
 
 - 使用 OpenCompass 进行主观评测（选做）
-- 使用 OpenCompass 评测 InternLM2-Chat-1.8B 模型使用 LMDeploy部署后在 ceval 数据集上的性能（选做）
-- 使用 OpenCompass 进行调用API评测（优秀学员必做）
-
+- 使用 OpenCompass 评测 I nte r nLM2-Chat-1.8B 模型使用 LMDeploy部署后在 ceval 数据集上的性能（选做）
 
