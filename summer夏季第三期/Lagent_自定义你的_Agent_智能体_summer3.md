@@ -37,7 +37,7 @@ streamlit run examples/internlm2_agent_web_demo.py
 
 
 ## 资料 学习
-##### [Agent 工具能力微调](https://github.com/InternLM/Tutorial/blob/camp2/agent/finetune.md) 可以在自己的代码中根据模型的输出来实现调用函数的逻辑  
+#### [Agent 工具能力微调](https://github.com/InternLM/Tutorial/blob/camp2/agent/finetune.md) 可以在自己的代码中根据模型的输出来实现调用函数的逻辑  
 > 还没出来   2024-08-20 10:28
 
 

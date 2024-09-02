@@ -24,7 +24,7 @@ lmdeploy lite auto_awq \
 ```
 
 
-#### 2.服务端启动
+#### 2.命令行 启动服务端
 
 ```bash
 lmdeploy serve api_server \
@@ -37,17 +37,18 @@ lmdeploy serve api_server \
     --tp 1
 
 ```
-#### 3.命令行客户端
+#### 3. .命令行 启动客户端
 ```bash
 lmdeploy serve api_client http://localhost:23333
 ```
 </details>
-##### 截图
+#### 截图
 
 - **设置在线 kv cache int4/int8 量化**
 通过 LMDeploy 应用 kv 量化非常简单，只需要设定 `quant_policy` 和`cache-max-entry-count`参数。目前，LMDeploy 规定 `qant_policy=4` 表示 kv int4 量化，`quant_policy=8` 表示 kv int8 量化
 ![](assets/2024-09-02-13-22.png)
 - 命令行 启动服务端 和客户端 
+
 ![](assets/2024-09-02-13-24.png)
 
 
@@ -206,7 +207,7 @@ lmdeploy lite auto_awq \
 6. `--w-bits 4`: 这表示权重（weights）的位数将被量化为4位。
 7. `--work-dir /root/models/internlm2_5-7b-chat-w4a16-4bit`: 这是工作目录的路径，用于存储量化后的模型和中间结果。
 
-#####  ==对于W4A16量化之后的显存占用情况(**20.9GB**)：
+####  ==对于W4A16量化之后的显存占用情况(**20.9GB**)：
 ![](../2024-09-03-06-35.png)
 1、在 int4 精度下，7B模型权重占用**3.5GB**：**14/4=3.5GB**
 注释：

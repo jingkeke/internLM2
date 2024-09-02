@@ -391,9 +391,9 @@ from xtuner.model import SupervisedFinetune
 from xtuner.parallel.sequence import SequenceParallelSampler
 from xtuner.utils import PROMPT_TEMPLATE, SYSTEM_TEMPLATE
 
-#######################################################################
+#########################################################
 #                          PART 1  Settings                           #
-#######################################################################
+#########################################################
 # Model
 pretrained_model_name_or_path = 'internlm/internlm2-chat-1_8b'
 use_varlen_attn = False
@@ -434,9 +434,9 @@ evaluation_inputs = [
 #（如批大小、学习率等）。
 
 
-#######################################################################
+#########################################################
 #                      PART 2  Model & Tokenizer                      #
-#######################################################################
+#########################################################
 tokenizer = dict(
     type=AutoTokenizer.from_pretrained,
     pretrained_model_name_or_path=pretrained_model_name_or_path,
@@ -471,9 +471,9 @@ model = dict(
 #PART 2 Model & Tokenizer：指定了用于训练的模型和分词器的具体类型及其配置，
 #包括预训练模型的路径和是否启用特定功能（如可变长度注意力），这是模型训练的核心组成部分。
 
-#######################################################################
+#########################################################
 #                      PART 3  Dataset & Dataloader                   #
-#######################################################################
+#########################################################
 alpaca_en = dict(
     type=process_hf_dataset,
     dataset=dict(type=load_dataset, path=alpaca_en_path),
@@ -499,9 +499,9 @@ train_dataloader = dict(
 #PART 3 Dataset & Dataloader：描述了数据处理的细节，包括如何加载数据集、预处理步骤、
 #批处理大小等，确保了模型能够接收到正确格式和质量的数据。
 
-#######################################################################
+#########################################################
 #                    PART 4  Scheduler & Optimizer                    #
-#######################################################################
+#########################################################
 # optimizer
 optim_wrapper = dict(
     type=AmpOptimWrapper,
@@ -537,9 +537,9 @@ train_cfg = dict(type=TrainLoop, max_epochs=max_epochs)
 #PART 4 Scheduler & Optimizer：配置了优化过程中的关键参数，如学习率调度策略和优化器的选择，
 #这些是影响模型训练效果和速度的重要因素。
 
-#######################################################################
+#########################################################
 #                           PART 5  Runtime                           #
-#######################################################################
+#########################################################
 # Log the dialogue periodically during the training process, optional
 custom_hooks = [
     dict(type=DatasetInfoHook, tokenizer=tokenizer),
@@ -608,9 +608,9 @@ log_processor = dict(by_epoch=False)
 修改内容：
 
 ```text
-#######################################################################
+#########################################################
 #                          PART 1  Settings                           #
-#######################################################################
+#########################################################
 - pretrained_model_name_or_path = 'internlm/internlm2-chat-1_8b'
 + pretrained_model_name_or_path = '/root/InternLM/XTuner/Shanghai_AI_Laboratory/internlm2-chat-1_8b'
 
@@ -622,9 +622,9 @@ evaluation_inputs = [
 +    '请介绍一下你自己', 'Please introduce yourself'
 ]
 
-#######################################################################
+#########################################################
 #                      PART 3  Dataset & Dataloader                   #
-#######################################################################
+#########################################################
 alpaca_en = dict(
     type=process_hf_dataset,
 -   dataset=dict(type=load_dataset, path=alpaca_en_path),
