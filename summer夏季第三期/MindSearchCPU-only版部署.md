@@ -2,8 +2,9 @@
 
 - 按照教程，将 MindSearch 部署到 HuggingFace 并美化 Gradio 的界面，并提供截图和 Hugging Face 的Space的链接。
 
+#### Hugging Face 的Space的链接 :https://huggingface.co/spaces/DanielCoco/mindsearch
 
-#### Hugging Face 的Space的链接 :[Mindsearch - a Hugging Face Space by DanielCoco](https://huggingface.co/spaces/DanielCoco/mindsearch)
+
 
 
 #### 截图
